@@ -1,0 +1,3 @@
+h1. EditableLabel
+
+Flex control. Extends Text Input so that it appears as a label until given focus.
