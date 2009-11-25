@@ -1,3 +1,6 @@
-h1. EditableLabel
+h1. Flex Components
+
+
+h3. EditableLabel
 
 Flex control. Extends Text Input so that it appears as a label until given focus.
