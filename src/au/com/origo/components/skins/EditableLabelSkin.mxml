@@ -18,7 +18,7 @@ in accordance with the terms of the license agreement accompanying it.
 -->
 <s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
 			 xmlns:s="library://ns.adobe.com/flex/spark"
-			 alpha.disabled="0.5">
+			>
 	
 	<fx:Metadata>
 		<![CDATA[ 
@@ -30,7 +30,10 @@ in accordance with the terms of the license agreement accompanying it.
 	</fx:Metadata> 
 	
 	<fx:Script>
-		/* Define the skin elements that should not be colorized. */
+				<![CDATA[
+			import au.com.origo.components.EditableLabel;
+		
+/* Define the skin elements that should not be colorized. */
 		static private const exclusions:Array = ["background", "textView"];
 		
 		/** 
@@ -45,6 +48,9 @@ in accordance with the terms of the license agreement accompanying it.
 		 * @inheritDoc
 		 */
 		override public function get contentItems():Array {return contentFill};
+		
+		
+				]]>
 	</fx:Script>
 	
 	<s:states>
@@ -83,6 +89,8 @@ in accordance with the terms of the license agreement accompanying it.
 	<s:RichEditableText id="textView" lineBreak="explicit"
 						left="1" right="1" top="1" bottom="1" 
 						paddingLeft="3" paddingTop="5"
-						paddingRight="3" paddingBottom="3" text="{hostComponent.text}" multiline="false" focusEnabled="false"/>
+						paddingRight="3" paddingBottom="3" 
+						multiline="false" focusEnabled="false" 
+						editable="false" editable.editing="true"/>
 	
 </s:SparkSkin>

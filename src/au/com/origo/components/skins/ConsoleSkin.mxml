@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			 xmlns:s="library://ns.adobe.com/flex/spark" 
+			 xmlns:mx="library://ns.adobe.com/flex/halo"
+			 addedToStage="sparkskin1_addedToStageHandler(event)"  
+			 width="100%"
+			 height="100%"
+			 includeInLayout="false"
+			 >
+	<fx:Declarations>
+		<s:AnimateColor id="flashLabel"
+						colorTo="0x999999"
+						target="{console}"
+						duration="300"
+						colorFrom="0xDDDDDD"/>
+		<s:Fade id="flashFadeOut" alphaFrom="{console.alpha}" alphaTo="0.5" startDelay="3000"
+				target="{console}"
+				duration="500"
+				/>
+		<s:Fade id="flashFadeIn" alphaFrom="{console.alpha}" alphaTo="1"
+				target="{console}"
+				duration="100" 
+				/>
+		<s:Fade id="scrollbarFadeOut" alphaFrom="{ScrollerSkin(scroller.skin).verticalScrollBar.alpha}" alphaTo="0.0" startDelay="3000"
+				target="{ScrollerSkin(scroller.skin).verticalScrollBar}"
+				duration="500"
+				/>
+		<s:Fade id="scrollbarFadeIn" alphaFrom="{ScrollerSkin(scroller.skin).verticalScrollBar.alpha}" alphaTo="1"
+				target="{ScrollerSkin(scroller.skin).verticalScrollBar}"
+				duration="100" 
+				/>
+	</fx:Declarations>
+	<fx:Metadata>
+		<![CDATA[
+		[HostComponent("au.com.origo.components.Console")]
+		]]>
+	</fx:Metadata> 
+	<fx:Script>
+		<![CDATA[
+			import mx.events.PropertyChangeEvent;
+			
+			import spark.effects.AnimateColor;
+			import spark.skins.spark.ScrollerSkin;
+			
+			protected function sparkskin1_addedToStageHandler(event:Event):void {
+				hostComponent.addEventListener(PropertyChangeEvent.PROPERTY_CHANGE, function(event:PropertyChangeEvent):void {
+					if (event.property == 'text') {
+						flash();
+					}
+				});
+				//clearBtn.addEventListener(MouseEvent.MOUSE_OVER
+				
+			}
+			
+			public function flash():void {
+				flashLabel.stop();
+				flashLabel.play();
+				flashFadeOut.stop();
+				flashFadeOut.play();
+				flashFadeIn.stop();
+				flashFadeIn.play();
+			}
+			
+			protected function sparkskin1_mouseOverHandler(event:MouseEvent):void {
+				flashFadeOut.stop();
+				flashFadeIn.play();
+				scrollbarFadeOut.stop();
+				scrollbarFadeIn.play();
+			}
+			
+			protected function sparkskin1_mouseOutHandler(event:MouseEvent):void {				
+				flashFadeIn.stop();
+				flashFadeOut.play();
+				scrollbarFadeIn.stop();
+				scrollbarFadeOut.play();
+			}
+			
+			
+		]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<mx:VDividedBox height="100%" width="100%" id="container" liveDragging="true">
+		<s:Group height="100%" width="100%" id="transparent" mouseChildren="true" />
+		<s:Group height="40" width="100%" id="console" mouseChildren="true" minHeight="40"  
+				 mouseOver="sparkskin1_mouseOverHandler(event)" 
+				 mouseOut="sparkskin1_mouseOutHandler(event)">
+			
+			<s:Rect height="40" width="100%">
+				
+				<s:fill>
+					<s:LinearGradient rotation="90"> 
+						<s:GradientEntry color="0x333333" alpha="0.6" />
+						<s:GradientEntry color="0xFFFFFF" alpha="0"  ratio="0.8"/>
+					</s:LinearGradient>
+					
+				</s:fill>
+			</s:Rect>
+			
+			
+			<s:Rect height="100%" width="100%">
+				
+				<s:fill>
+					<s:SolidColor color="0xFFFFFF" alpha="0.6" />
+				</s:fill>
+				<s:stroke>
+					<s:SolidColorStroke weight="1" color="0x5555555" alpha="0.3" />
+				</s:stroke>
+				
+			</s:Rect>
+			
+			<s:Scroller width="100%" id="scroller" height="100%" contentBackgroundColor="0xFFFFFF" contentBackgroundAlpha="0.6">
+				<s:Group height="100%" width="100%">
+					<s:RichText id="textSpace"
+								width="100%"
+								color="0x555555"
+								left="0"
+								paddingLeft="14"
+								paddingTop="14"
+								paddingBottom="0"
+								paddingRight="14" 
+								text="{hostComponent.text}" 
+								lineHeight="150%" fontFamily="Lucida Console, monospace"/>	
+					
+					<s:Button id="clearBtn" skinClass="au.com.origo.components.skins.ClearBtnSkin" right="0" top="0" />
+					
+					
+				</s:Group>
+			</s:Scroller>
+			<s:Rect height="40" width="100%" bottom="0">
+				
+				<s:fill>
+					<s:LinearGradient rotation="90">
+						<s:GradientEntry color="0xFFFFFF" alpha="0"  ratio="0.8" />
+						<s:GradientEntry color="0x333333" alpha="0.5" />
+						
+					</s:LinearGradient>
+					
+				</s:fill>
+			</s:Rect>
+			
+		</s:Group>
+	</mx:VDividedBox>
+</s:SparkSkin>
