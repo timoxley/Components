@@ -28,7 +28,6 @@ package au.com.origo.components {
 		
 		public function Console() {
 			super();
-			trace("Creating Console");
 			setStyle("skinClass", au.com.origo.components.skins.ConsoleSkin);
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
 		}

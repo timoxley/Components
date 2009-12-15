@@ -32,7 +32,6 @@ package au.com.origo.components
 			// (through rpc operation), which will log to this again, ... until StackOverflowException
 			var category : String = ILogger(event.target).category;
 			if (category.indexOf("mx.") != 0) {
-				trace("event.message" + event.message);
 				if (messageTarget) {
 					
 					messageTarget.postMessage(event.message);
