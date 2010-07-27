@@ -1,7 +1,7 @@
-package au.com.origo.components {
+package com.timoxley.components {
 	
-	import au.com.origo.components.interfaces.IMessageBoard;
-	import au.com.origo.components.skins.ConsoleSkin;
+	import com.timoxley.components.interfaces.IMessageBoard;
+	import com.timoxley.components.skins.ConsoleSkin;
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;
@@ -28,7 +28,7 @@ package au.com.origo.components {
 		
 		public function Console() {
 			super();
-			setStyle("skinClass", au.com.origo.components.skins.ConsoleSkin);
+			setStyle("skinClass", com.timoxley.components.skins.ConsoleSkin);
 			this.addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		

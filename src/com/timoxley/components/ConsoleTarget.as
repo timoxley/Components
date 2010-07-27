@@ -1,7 +1,7 @@
-package au.com.origo.components
+package com.timoxley.components
 {
 	
-	import au.com.origo.components.interfaces.IMessageBoard;
+	import com.timoxley.components.interfaces.IMessageBoard;
 	
 	import mx.logging.ILogger;
 	import mx.logging.LogEvent;

@@ -1,4 +1,4 @@
-package au.com.origo.utilities.events
+package com.timoxley.utilities.events
 {
 	import flash.events.ErrorEvent;
 	import flash.events.Event;

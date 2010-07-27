@@ -25,13 +25,13 @@ in accordance with the terms of the license agreement accompanying it.
 		/** 
 		* @copy spark.skins.default.ApplicationSkin#hostComponent
 		*/
-		[HostComponent("au.com.origo.components.EditableLabel")]
+		[HostComponent("com.timoxley.components.EditableLabel")]
 		]]>
 	</fx:Metadata> 
 	
 	<fx:Script>
 				<![CDATA[
-			import au.com.origo.components.EditableLabel;
+			import com.timoxley.components.EditableLabel;
 		
 /* Define the skin elements that should not be colorized. */
 		static private const exclusions:Array = ["background", "textView"];

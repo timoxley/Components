@@ -1,6 +1,6 @@
-package au.com.origo.utilities
+package com.timoxley.utilities
 {
-	import au.com.origo.utilities.events.InfoEvent;
+	import com.timoxley.utilities.events.InfoEvent;
 	
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;

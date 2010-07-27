@@ -1,4 +1,4 @@
-package au.com.origo.components.interfaces
+package com.timoxley.components.interfaces
 {
 	public interface IMessageBoard
 	{

@@ -1,6 +1,6 @@
-package au.com.origo.components
+package com.timoxley.components
 {
-	import au.com.origo.components.skins.EditableLabelSkin;
+	import com.timoxley.components.skins.EditableLabelSkin;
 	
 	import flash.events.FocusEvent;
 	import flash.events.KeyboardEvent;
@@ -30,7 +30,7 @@ package au.com.origo.components
 		
 		public function EditableLabel() {
 			super();
-			setStyle("skinClass", au.com.origo.components.skins.EditableLabelSkin);
+			setStyle("skinClass", com.timoxley.components.skins.EditableLabelSkin);
 			this.focusEnabled = false;
 			this.mouseFocusEnabled = false;
 		}
